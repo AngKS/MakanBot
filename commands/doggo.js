@@ -7,11 +7,14 @@ module.exports = {
     syntax : "./doggo",
     description : "Generates a paragraph of Doggo Ipsum",
     execute(client, arg, msg){
+        
+        arg[0] === undefined ? arg[0] = 1 : arg[0] = Math.floor(arg[0])
+        if (arg[0] > 3 || (isNaN(arg[0]) && arg[0] !== undefined)) return msg.reply("Pupper's head hurts 🐶🥺")
+        // console.warn(arg[0])
+        
 
-        arg.length > 0 ? arg = arg : arg = 1
+        // if (!(typeof arg[0] === 'number')) return msg.reply("Pupper ruff you don't know how to count?")
 
-        if (arg > 3) return msg.reply("Pupper's head hurts 🐶🥺")
-        if (!(Number.isInteger(arg[0]))) return msg.reply("Pupper ruff you don't know how to count?")
 
         const poems = [
             "Over hill, over dale, Thorough bush, thorough brier, Over park, over pale,Thorough flood, thorough fire! I do wander everywhere,Swifter than the moon\'s sphere; And I serve the Fairy Queen, To dew her orbs upon the green; The cowslips tall her pensioners be; In their gold coats spots you see; Those be rubies, fairy favours; In those freckles live their savours; I must go seek some dewdrops here, And hang a pearl in every cowslip\'s ear.",
