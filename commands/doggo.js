@@ -2,18 +2,17 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name : 'doggo',
-    aliases : ['doggo', 'gimme'],
-    syntax : "./doggo",
-    description : "Generates a paragraph of Doggo Ipsum",
-    execute(client, arg, msg){
-        
-        arg[0] === undefined ? arg[0] = 1 : arg[0] = Math.floor(arg[0])
-        if (arg[0] > 3 || (isNaN(arg[0]) && arg[0] !== undefined)) return msg.reply("Pupper's head hurts 🐶🥺")
-        // console.warn(arg[0])
-        
+    name: 'doggo',
+    aliases: ['doggo', 'gimme'],
+    syntax: "./doggo",
+    description: "Generates a paragraph of Doggo Ipsum",
+    execute(client, arg, msg) {
 
-        // if (!(typeof arg[0] === 'number')) return msg.reply("Pupper ruff you don't know how to count?")
+
+        arg[0] === undefined ? arg[0] = 1 : arg[0] = Math.floor(arg[0])
+        if (arg[0] > 3) return msg.reply("Pupper's head hurts 🐶🥺")
+        // console.warn(arg[0])
+        if ((isNaN(arg[0]) && arg[0] !== undefined)) return msg.reply("Pupper ruff you don't know how to count?")
 
 
         const poems = [
@@ -23,9 +22,9 @@ module.exports = {
         ]
         let doggoSpeech = ['bark', 'ruff', 'pupper', 'floof', 'lotsa', 'wag', 'heck', 'treat', 'fluff', 'hangry', 'spoof']
 
-        let doggoGenerator = (para = 1) =>{
+        let doggoGenerator = (para = 1) => {
             let wholeText = []
-            for (var i = 0; i < para; i++){
+            for (var i = 0; i < para; i++) {
                 let tempText = []
                 // Select random phrase
                 let randPoem = Math.floor(Math.random() * poems.length)
