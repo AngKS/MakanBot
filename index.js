@@ -75,7 +75,7 @@ client.on('message', async (msg) => {
     if (msg.author.bot) return null
     if (msg.content.toLowerCase().startsWith(prefix)) {
         // Bot Commands
-        let arg = msg.content.slice(prefix.length).trim().split(' ')
+        let arg = msg.content.slice(prefix.length).trim().split(/ +/)
         let command = arg.shift().toLowerCase()
         console.log(arg)
 
