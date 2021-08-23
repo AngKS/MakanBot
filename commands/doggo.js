@@ -8,6 +8,9 @@ module.exports = {
     description : "Generates a paragraph of Doggo Ipsum",
     execute(client, arg, msg){
 
+        arg.length > 0 ? arg = arg : arg = 1
+
+        if (arg > 3) return msg.reply("pupper's head hurts ;(")
 
         const poems = [
             "Over hill, over dale, Thorough bush, thorough brier, Over park, over pale,Thorough flood, thorough fire! I do wander everywhere,Swifter than the moon\'s sphere; And I serve the Fairy Queen, To dew her orbs upon the green; The cowslips tall her pensioners be; In their gold coats spots you see; Those be rubies, fairy favours; In those freckles live their savours; I must go seek some dewdrops here, And hang a pearl in every cowslip\'s ear.",
@@ -41,19 +44,14 @@ module.exports = {
             .setColor('#0099ff')
             .setTitle(`${arg} ${arg === 1 ? 'paragraph' : 'paragraphs'} of Doggo Ipsum`)
             .setURL('https://www.github.com/angks/MakanBot')
-            .setAuthor(`Requested by ${msg.author.displayName}`, msg.author.displayAvatarURL({ dynamic: true }))
-            .setDescription('Some description here')
-            .setThumbnail('../doge.jpg')
-            .addFields(
-                { name: 'Regular field title', value: 'Some value here' },
-                { name: '\u200B', value: '\u200B' },
-                { name: 'Inline field title', value: 'Some value here', inline: true },
-                { name: 'Inline field title', value: 'Some value here', inline: true },
+            .setAuthor(`Requested by ${msg.member.displayName}`, msg.author.displayAvatarURL({ dynamic: true }))
+            .setThumbnail('https://github.com/AngKS/MakanBot/blob/master/doge.jpg?raw=true')
+            .setDescription(
+                doggoGenerator(arg).join("\n\n")
             )
             .addField('Inline field title', 'Some value here', true)
             .setTimestamp()
-            .setFooter('Some footer text here', 'https://i.imgur.com/AfFp7pu.png');
-
+            .setFooter('Brought to you by AKS', 'https://angks.github.io/static/media/520x520.ebb5c5d5.png');
 
 
         return msg.channel.send(embedCreator)
