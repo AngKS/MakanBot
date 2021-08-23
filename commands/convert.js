@@ -53,6 +53,6 @@ module.exports = {
             .setFooter('Brought to you by AKS', 'https://angks.github.io/static/media/520x520.ebb5c5d5.png');
 
 
-        return msg.channel.send(doggoConvertor(arg.join(" ")))
+        return msg.reply(doggoConvertor(arg.join(" ")))
     }
 }
