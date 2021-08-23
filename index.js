@@ -66,6 +66,7 @@ for (const file of commandFiles) {
     category.set(command.category, commandsNames);
     client.commands.set(command.name, command);
     if (category.get(command.category) == undefined) commandsNames = `${command.name}`;
+    console.log(commandsNames)
 
 }
 
