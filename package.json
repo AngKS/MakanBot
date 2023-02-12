@@ -13,7 +13,7 @@
     "@discordjs/opus": "^0.5.3",
     "discord": "^0.8.2",
     "discord.js": "^12.5.3",
-    "distube": "^2.8.18",
+    "distube": "^4.0.4",
     "ffmpeg-static": "^4.4.0",
     "gtts": "^0.2.1",
     "ms": "^2.1.3",
